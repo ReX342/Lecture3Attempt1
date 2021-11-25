@@ -7,10 +7,12 @@
 {% block body %}
     <h1>standard form here</h1>
 
-    <form action = "/create/" method = "POST">
+    <form action="{% url 'create' %}" method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="OK">
+        {{ form }}  
+        <input type="title" name="title">
+        <input type="content" name="content">      
+        <button type="submit" class="btn btn-outline-secondary">Save</button>
     </form>
 
 {% endblock %}
