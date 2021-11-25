@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Watch at entry you just clicked on</h1>
+    <a href="{% url 'watch' %}">Home</a>
+    {{ entry }}
+
+
+{% endblock %}
