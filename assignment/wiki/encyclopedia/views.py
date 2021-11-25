@@ -1,9 +1,10 @@
+from django.core.files.base import ContentFile
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from .forms import EntryForm
 from . import util
 import markdown
-
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -17,7 +18,15 @@ def watch(request, title):
     })
 
 def create_entry(request):
-    context = EntryForm()
+    if request.method == 'POST':
+    form = EntryForm(request.POST)
+    if form.is_valid():
+        "title": form.cleaned_data["title"]
+        "content": form.cleaned_data["content"]
+        return HttpResponseRedirect('/Looksvalid/')
+    else:
+        form = EntryForm()
+        
     return render(request, "encyclopedia/create.html", {
-        "entry" : context
+        "form" : form
     })

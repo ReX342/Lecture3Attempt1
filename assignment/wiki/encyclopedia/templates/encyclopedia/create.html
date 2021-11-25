@@ -6,7 +6,11 @@
 
 {% block body %}
     <h1>standard form here</h1>
-    {{ entry|safe }}
 
+    <form action = "/create/" method = "POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+    </form>
 
 {% endblock %}
