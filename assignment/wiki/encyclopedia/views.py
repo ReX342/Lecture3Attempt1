@@ -17,7 +17,9 @@ def watch(request, title):
         "title": title,
         "entry": markdown.markdown(util.get_entry(title))
     })
-
+def random(request):
+    render(request, "encyclopedia/random.html")
+    
 def create_entry(request):
     if request.method == 'POST':
         form = EntryForm(request.POST)
@@ -38,5 +40,17 @@ def create_entry(request):
         "form" : form
     })
     
-def random(request):
-    render(request, "encyclopedia/random.html")
+
+    
+def edit(request, title):
+    EntryForm = util.get_entry(title)
+    form = EntryForm()
+    form.fields["title"].initial = title
+    form.fields["content"].initial = EntryForm
+    form.fields["lockit"].initial = False
+    return render(request, "encyclopedia/entry.html", {
+        "form": form,
+        "lockit": form.fields["lockit"].initial,
+        "EntryForm": form.fields["title"].initial
+    })
+

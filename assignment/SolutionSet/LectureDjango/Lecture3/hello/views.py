@@ -6,4 +6,4 @@ def index(request):
     return HttpResponse("Hello!")
 
 def brian(request):
-    return
+    return HttpResponse("Hello, Brian!")

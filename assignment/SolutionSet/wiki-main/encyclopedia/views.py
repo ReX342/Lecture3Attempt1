@@ -11,7 +11,7 @@ from . import util
 from markdown2 import Markdown
  
 class NewEntryForm(forms.Form):
-    title = forms.CharField(max_length = 1000, label="Entry title", widget=forms.TextInput(attrs={'class': 'special'}))
+    title = forms.CharField(max_length = 1000, label="Entry title", widget=forms.TextInput(attrs={'class': 'form-control'}))
     content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     edit = forms.BooleanField(initial=False, widget=forms.HiddenInput(), required=False)
 
