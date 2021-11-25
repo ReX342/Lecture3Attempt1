@@ -54,3 +54,5 @@ def edit(request, title):
         "EntryForm": form.fields["title"].initial
     })
 
+def add(request):
+    return render(request, "tasks/add.html")
