@@ -1,12 +1,11 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Look at an entry!
+    Encyclopedia: {{ title }}
 {% endblock %}
 
 {% block body %}
     <h1>Watch at entry you just clicked on</h1>
     {{ entry|safe }}
-    {{ title }}
 
 {% endblock %}
