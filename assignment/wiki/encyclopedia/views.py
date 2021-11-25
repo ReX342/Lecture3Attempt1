@@ -8,3 +8,7 @@ def index(request):
         "entries": util.list_entries()
     })
 
+def watch(request, title):
+    return render(request, "encylcopedia/watch.html", {
+        "entry": util.get_entry(title)
+    })
