@@ -9,8 +9,10 @@ import markdown
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
+        #"tasks": tasks
         "entries": util.list_entries()
     })
+
 
 def watch(request, title):
     return render(request, "encyclopedia/watch.html", {
