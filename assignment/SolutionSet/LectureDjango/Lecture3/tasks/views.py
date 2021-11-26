@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-tasks = []
 
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
@@ -21,7 +20,7 @@ def add(request):
         form = NewTaskForm(request.POST)
         if form.is_valid():
             task = form.cleaned_data["task"]
-            request.session["tasks"] += [tasks]
+            request.session["tasks"] += [task]
             return HttpResponseRedirect(reverse("tasks:index"))
         else:
             return render(request, "tasks/add.html",{
